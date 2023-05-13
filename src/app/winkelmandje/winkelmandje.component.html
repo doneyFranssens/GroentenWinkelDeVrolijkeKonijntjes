@@ -16,6 +16,7 @@
             <td>{{item[3]}}</td>
             <td>EUR {{item[2]}}</td>
             <td>EUR {{item[2]*item[3]}}</td>
+            <td hidden>{{item[2]*item[3]}}</td>
         </tr>
     </tbody>
     <tfoot>
@@ -23,6 +24,6 @@
         <td></td>
         <td></td>
         <td></td>
-        <td>EUR {{totaalBedrag}}</td>
+        <td>EUR {{subTotBedrag}}</td>
     </tfoot>
 </table>

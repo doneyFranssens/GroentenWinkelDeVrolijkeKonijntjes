@@ -12,6 +12,7 @@ import { Output } from '@angular/core';
 export class WinkelmandjeService {
    send_data = new Subject<any>();
    send_totaal = new Subject<any>();
+   send_subTotaal = new Subject<any>();
     constructor(){}
     
 }
