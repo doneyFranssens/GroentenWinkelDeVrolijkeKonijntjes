@@ -7,23 +7,34 @@
         <td></td>
         <td></td>
         <td></td>
-        <td><button class="btn btn-primary">USD</button></td>
+        <td *ngIf="wisselKoers===true"><button (click)="euroNaarDollar()" class="btn btn-primary">USD</button></td>
+        <td *ngIf="wisselKoers===false"><button (click)="euroNaarDollar()" class="btn btn-primary">EURO</button></td>
     </thead>
-    <tbody>
-        <tr *ngFor="let item of mandjeArray">
-            <td>{{item[0]}}</td>
-            <td>{{item[1]}}</td>
-            <td>{{item[3]}}</td>
-            <td>EUR {{item[2]}}</td>
-            <td>EUR {{item[2]*item[3]}}</td>
-            <td hidden>{{item[2]*item[3]}}</td>
-        </tr>
+    <tbody *ngFor="let item of mandjeArray">
+      <tr *ngIf="wisselKoers===true" >
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+        <td>{{item[3]}}</td>
+        <td>EUR {{item[2]}}</td>
+        <td>EUR {{item[4]}}</td>
+      </tr>
+      <tr *ngIf="wisselKoers===false">
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+        <td>{{item[3]}}</td>
+        <td>USD {{item[2]* 1.0886}}</td>
+        <td>USD {{item[5]}}</td>
+      </tr>
     </tbody>
+
     <tfoot>
         <td>Totaal te betalen</td>
         <td></td>
         <td></td>
         <td></td>
-        <td>EUR {{subTotBedrag}}</td>
+        <td *ngIf="wisselKoers===true">EUR {{this.winkelmandjeService.getTotaal()}}</td>
+        <td *ngIf="wisselKoers===false">USD {{this.winkelmandjeService.getTotaal()* 1.0886}}</td>
     </tfoot>
 </table>
+
+

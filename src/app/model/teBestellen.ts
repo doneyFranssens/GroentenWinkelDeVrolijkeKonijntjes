@@ -5,6 +5,7 @@ export class TeBestellen {
     constructor(
         winkel: Winkel,
         groente: Groente,
-        aantal: number
+        aantal: number,
+        totaal: number
     ){}
 }

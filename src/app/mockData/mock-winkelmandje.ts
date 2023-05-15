@@ -1,3 +1,1 @@
-import { TeBestellen } from "../model/teBestellen";
-
-export const TEBESTELLEN: TeBestellen[] = []
+export const WINKELMANDJE: any[] = []

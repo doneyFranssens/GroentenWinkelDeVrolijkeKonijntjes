@@ -8,44 +8,25 @@ import { WinkelmandjeService } from '../services/winkelmandje.service';
   templateUrl: './winkelmandje.component.html',
   styleUrls: ['./winkelmandje.component.css']
 })
+
+
 export class WinkelmandjeComponent implements OnInit {
   mandjeArray = []
-  totaalArray = []
-  sub: Subscription
-  subT: Subscription
-  subTotBedrag: number;
-  subA: Subscription
+  wisselKoers: boolean = true;
+  constructor(public winkelmandjeService: WinkelmandjeService){}
 
-  
-   
-  constructor(private winkelmandjeService: WinkelmandjeService){
-    this.subA = this.winkelmandjeService.send_subTotaal.subscribe(
-      data => {
-        this.subTotBedrag = data
-      }
-    )
-  }
-  
+
   ngOnInit(): void {
-    this.subA = this.winkelmandjeService.send_subTotaal.subscribe(
-      data => {
-        this.subTotBedrag = data
-      }
-    )
+    this.winkelmandjeService.getWinkelmandje().subscribe(winkelmandje => this.mandjeArray = winkelmandje)
   }
-  ngAfterContentInit() {
-    this.sub = this.winkelmandjeService.send_data.subscribe(
-      data => {
-        this.mandjeArray = data
-        
-      }
-    )
-    this.subT = this.winkelmandjeService.send_totaal.subscribe(
-      data => {
-        this.totaalArray = data
-      }
-    )
-    
+
+  //toggle voor boolean om euro of dollar zichbaar te maken
+  euroNaarDollar() {
+    if(this.wisselKoers) {
+      this.wisselKoers = false
+    } else {
+      this.wisselKoers = true
+    }
   }
 }
 

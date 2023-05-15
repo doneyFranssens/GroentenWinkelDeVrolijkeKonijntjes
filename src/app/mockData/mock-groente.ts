@@ -1,5 +1,3 @@
-import { Groente } from "../model/groente";
-
 export const GROENTES: any[] = [
         ["aardappelen",0.95,"kg"],
         ["avocado",2.69,"stuk"],
@@ -24,8 +22,8 @@ export const GROENTES: any[] = [
         ["ui",0.89,"kg"],
         ["witloof 1ste keus",1.49,"700g"],
         ["wortelen",2.59,"kg"],
-        ["courgetten",1.5,"stuk"]  
+        ["courgetten",1.5,"stuk"]
 
 
-           
+
 ]
